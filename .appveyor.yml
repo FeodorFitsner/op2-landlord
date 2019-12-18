@@ -7,12 +7,10 @@ platform:
   - x64
 cache:
   - C:\tools\vcpkg\installed\
-  - proj/VS2019/packages -> proj/VS2019/packages.config
   - nas2d-core/proj/vs2019/packages -> nas2d-core/proj/vs2019/packages.config
 install:
   - cd %APPVEYOR_BUILD_FOLDER%
   - git submodule update --init --recursive
-  - nuget restore proj/VS2019
   - nuget restore nas2d-core/proj/vs2019
   - vcpkg integrate install
   - vcpkg install physfs:x86-windows
